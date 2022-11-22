@@ -1,2 +1,2 @@
     //Tag name from main cpp.
-    float readTemp();
+    float readLight();

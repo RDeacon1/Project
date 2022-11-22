@@ -2,15 +2,12 @@
 #include "Constants.h"
 #include "tempSensor.h"
 
-    DigitalOut Pwr(thermVoltage);
-    DigitalOut Gnd(thermGround);
+
     AnalogIn TempV(thermOut);
 
 float readTemp() {
-    Gnd = false;
-    Pwr = true;
+
     float refVoltage = TempV.read() * 2.4; // Range of ADC 0->2*Vref
-    Pwr = false;
     float refCurrent = refVoltage  / 10000.0; // 10k Reference Resistor
     float thermVoltage = 3.3 - refVoltage;    // Assume supply voltage is 3.3v
     float thermResistance = thermVoltage / refCurrent; 
