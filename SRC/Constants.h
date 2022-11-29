@@ -21,3 +21,9 @@
 #define Lightout P10_4
 #define SwitchInput P0_4
 #define GreenLED P0_5
+
+struct things_data {
+    float Temperature;
+    float LightLevel;
+    int SwState;
+};

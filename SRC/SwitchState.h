@@ -1,1 +1,1 @@
-int switchPos();
+void switchPos();

@@ -1,15 +1,16 @@
 #include "mbed.h"
 #include "Constants.h"
-#include "tempSensor.h"
+#include "displayTask.h"
 
 extern things_data myData;
     DigitalIn switchValue(SwitchInput);
 
-void switchPos() {
+void displayTask() {
     /*set up code.*/
+    DigitalOut LEDGn (GreenLED);
     while(true){    /*loop forever*/
-    ThisThread::sleep_for(50ms);
-    myData.SwState = switchValue;
+    ThisThread::sleep_for(100ms);
+    LEDGn = myData.SwState;
     }
     
 }

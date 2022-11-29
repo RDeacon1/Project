@@ -2,10 +2,10 @@
 #include "Constants.h"
 #include "tempSensor.h"
 
+extern things_data myData;
     AnalogIn LightLevelV(Lightout);
 
-float readLight() {
-
-    float LightLevel = LightLevelV.read() * 100; // Range of light level 0 - 100%
-    return LightLevel;
+void readLight() {
+    myData.LightLevel = LightLevelV.read() * 100;
+    ThisThread::sleep_for(1s);
 }
