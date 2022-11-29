@@ -19,3 +19,5 @@
 #define ABSOLUTE_ZERO                       (float)(-273.15)
 
 #define Lightout P10_4
+#define SwitchInput P0_4
+#define GreenLED P0_5
