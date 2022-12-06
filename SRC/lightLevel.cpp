@@ -4,7 +4,7 @@
 
 extern things_t myData;
 
-AnalogIn lightLevelV( lightOut );
+AnalogIn lightLevelV(lightOut);
 
 void readLight() {
     myData.lightLevel = lightLevelV.read() * 100; // Range of light level 0 to 100%
