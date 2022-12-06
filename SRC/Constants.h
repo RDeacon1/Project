@@ -1,5 +1,5 @@
 // Blinking rate in milliseconds
-#define BLINKING_RATE     1s
+#define BLINKING_RATE     500ms
 //#define thermPower P10_3
 //#define thermGround P10_0
 #define thermOut P10_1
