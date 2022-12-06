@@ -1,16 +1,21 @@
 #include "mbed.h"
-#include "Constants.h"
+#include "constants.h"
 #include "displayTask.h"
 
-extern things_data myData;
-    DigitalIn switchValue(SwitchInput);
+extern things_t myData;
 
 void displayTask() {
-    /*set up code.*/
-    DigitalOut LEDGn (GreenLED);
-    while(true){    /*loop forever*/
-    ThisThread::sleep_for(100ms);
-    LEDGn = myData.SwState;
+/* setup */
+int period = 0;
+    DigitalOut green(greenLed);
+    while(true){ /* loop forever */
+        ThisThread::sleep_for(100ms);
+        green = myData.switchState;
+        if (period++ > 4){
+            printf("Temperature is: %2.1fc\n", myData.temperature);
+            printf("Light is at %2f%c\n", myData.lightLevel, '%');
+            period = 0;
+        }
     }
-    
+
 }

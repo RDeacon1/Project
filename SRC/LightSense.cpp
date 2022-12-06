@@ -1,11 +1,12 @@
 #include "mbed.h"
-#include "Constants.h"
-#include "tempSensor.h"
+#include "constants.h"
+#include "lightLevel.h"
 
-extern things_data myData;
-    AnalogIn LightLevelV(Lightout);
+extern things_t myData;
+
+AnalogIn lightLevelV( lightOut );
 
 void readLight() {
-    myData.LightLevel = LightLevelV.read() * 100;
-    ThisThread::sleep_for(1s);
+    myData.lightLevel = lightLevelV.read() * 100; // Range of light level 0 to 100%
+        ThisThread::sleep_for(1s);
 }

@@ -1,10 +1,12 @@
 // Blinking rate in milliseconds
-#define BLINKING_RATE     4s
-
-//#define thermVoltage P10_3 //Naming terminal 10_3 Therm_VDD
-//#define thermGround P10_0 // Naming terminal 10_0 Therm_GND
-#define thermOut P10_1 // Naming terminal 10_1 Therm_Out
+#define BLINKING_RATE     1s
+//#define thermPower P10_3
+//#define thermGround P10_0
+#define thermOut P10_1
 #define lightOut P10_4
+#define switchPort P0_4
+#define greenLed P0_5
+
 /* Reference resistor in series with the thermistor is of 10kohm */
 #define R_REFERENCE                         (float)(10000)
 
@@ -18,12 +20,8 @@
 /* Zero Kelvin in degree C */
 #define ABSOLUTE_ZERO                       (float)(-273.15)
 
-#define Lightout P10_4
-#define SwitchInput P0_4
-#define GreenLED P0_5
-
-struct things_data {
-    float Temperature;
-    float LightLevel;
-    int SwState;
+struct things_t {
+    float temperature;
+    float lightLevel;
+    bool switchState;
 };

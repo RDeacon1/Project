@@ -1,22 +1,26 @@
+/* mbed Microcontroller Library
+ * Copyright (c) 2019 ARM Limited
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "mbed.h"
 #include "stdio.h"
-#include "tempSensor.h"
-#include "Constants.h"
-#include "Lightsense.h"
-#include "SwitchState.h"
+#include "tempSense.h"
+#include "lightLevel.h"
+#include "switchPos.h"
 #include "displayTask.h"
-#include <cstdio>
+#include "constants.h"
 
-things_data myData;
+things_t myData;
 
- // Name outputs and supplies
-    DigitalOut led(LED1);
-    
+// Initialise the digital pin LED1 as an output
+DigitalOut led(LED1);
 
-    Thread readTempHandle;
-    Thread readLightHandle;
-    Thread readButtonHandle;
-    Thread displayTaskHandle;
+
+Thread readTempHandle;
+Thread readLightHandle;
+Thread readButtonHandle;
+Thread displayTaskHandle;
 
 int main()
 {
