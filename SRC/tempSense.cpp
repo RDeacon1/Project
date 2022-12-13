@@ -12,6 +12,7 @@ void readTemp() {
 //    gnd = false;
 //    vdd = true;
     // read the voltage from thermistor
+    while (true){
     float refVoltage = temperatureVoltage.read() * 2.4; // Range of ADC 0->2*Vref
     // power off the thermistor
 //    vdd = false;
@@ -25,4 +26,5 @@ void readTemp() {
     float temperatureC = (float32_t)(((1.0 / stEqn) + ABSOLUTE_ZERO)  + 0.05);
     myData.temperature = temperatureC;
     ThisThread::sleep_for(1s);
+}
 }
