@@ -10,6 +10,7 @@
 #include "switchPos.h"
 #include "displayTask.h"
 #include "constants.h"
+#include "vt100.h"
 
 things_t myData;
 
