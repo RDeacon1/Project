@@ -17,9 +17,10 @@ int period = 0;
         if (period++ > 4){
             HOME; //put cursor in position 1.1
             HIDE_CURSOR; //Remove cursor from screen
-            printf("LED is %s\n", myData.switchState? "\033[0;31mOn \033[0;37m":"\033[0;32mOff \033[0;37m");            
-            printf("Temperature is: %2.1fc\n", myData.temperature);
-            printf("Light is at %2.2f%c\n", myData.lightLevel, '%');
+            printf("\033[1;15H\033[1;37m\033[4mRyan's Data \033[0;37m");
+            printf("\033[3;3H\033[1;37mLED is %s\n", myData.switchState? "\033[0;31mOn \033[0;37m":"\033[0;32mOff \033[0;37m");            
+            printf("\033[6;3H\033[1;37mTemperature is: \033[1;34m%2.1fc\n \033[0;37m", myData.temperature);
+            printf("\033[9;3H\033[1;37mLight is at \033[1;36m%2.2f%c\n \033[0;37m", myData.lightLevel, '%');
             period = 0;
         }
     }
