@@ -11,6 +11,7 @@
 #include "displayTask.h"
 #include "constants.h"
 #include "vt100.h"
+#include "wifiThread.h"
 
 things_t myData;
 
@@ -22,6 +23,7 @@ Thread readTempHandle;
 Thread readLightHandle;
 Thread readButtonHandle;
 Thread displayTaskHandle;
+Thread wifiHandle;
 
 int main()
 {
@@ -29,6 +31,7 @@ int main()
     readTempHandle.start(callback(readTemp));
     readLightHandle.start(callback(readLight));
     readButtonHandle.start(callback(switchPos));
+    wifiHandle.start(callback(wifiThreadTask));
     while (true) {
         led = !led;
         ThisThread::sleep_for(BLINKING_RATE);
