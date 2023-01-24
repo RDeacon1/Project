@@ -3,7 +3,7 @@
 #include "switchPos.h"
 
 extern things_t myData;
-DigitalIn switchValue( switchPort );
+DigitalIn switchValue(switchPort);
 void switchPos() {
 
     /* set stuff up */

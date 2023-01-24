@@ -1,4 +1,7 @@
 #include "mbed.h"
+#include "constants.h"
+#include "vt100.h"
+//#include "wifiThread.h"
 
 WiFiInterface *wifi;
 
@@ -28,7 +31,23 @@ int wifiThreadTask()
         printf("ERROR: No WiFiInterface found.\n");
         return -1;
     } else {
-        printf("Connected to wifi");
+        printf("\nConnecting to %s...\n", MBED_CONF_APP_WIFI_SSID);
+        int ret = wifi->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+        if (ret != 0) {
+            printf("\nConnection error: %d\n", ret);
+        return -1;
+    }
+
+        /* print the network info */
+        SocketAddress a;
+        wifi->get_ip_address(&a);
+        printf("\033[11;3HIP address: %s\r\n", a.get_ip_address() ? a.get_ip_address() : "None");
+    //    wifi->get_netmask(&a);
+    //    printf("Netmask: %s\r\n", a.get_ip_address() ? a.get_ip_address() : "None");
+    //    wifi->get_gateway(&a);
+    //    printf("Gateway: %s\r\n", a.get_ip_address() ? a.get_ip_address() : "None");
+
+
     }
 
     while(true) {
