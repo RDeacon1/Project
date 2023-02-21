@@ -22,7 +22,7 @@ int period = 0;
             printf("\033[13;1H%s", myData.switchState
                                   ? "\033[1;42m \033[0;37m"
                                   : "\033[1;41m \033[0;37m");            
-            printf("\033[15;3H\033[1;37mTemperature is: \033[1;34m%2.1fc\n \033[0;37m", myData.temperature);
+            printf("\033[15;3H\033[1;37mTemperature is: \033[1;34m%2.1f'c\n \033[0;37m", myData.temperature);
             printf("\033[15;1H%s", myData.heaterstate
                                   ? "\033[1;42m \033[0;37m"
                                   : "\033[1;41m \033[0;37m");
