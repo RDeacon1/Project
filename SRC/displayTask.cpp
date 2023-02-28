@@ -10,9 +10,9 @@ void displayTask() {
 int period = 0;
     DigitalOut green(greenLed);
     RIS; //Reset the VT100 terminal to text mode
-    ThisThread::sleep_for(1s);
+    ThisThread::sleep_for(1000);
     while(true){ /* loop forever */
-        ThisThread::sleep_for(100ms);
+        ThisThread::sleep_for(100);
         green = myData.switchState;
         if (period++ > 4){
             HOME; //put cursor in position 1.1

@@ -31,6 +31,6 @@ void readTemp() {
         if(myData.temperature < myData.setTemp -2.0f) {
         myData.heaterstate = true;
     }
-    ThisThread::sleep_for(1s);
+    ThisThread::sleep_for(1000);
 }
 }
